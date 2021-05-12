@@ -28,11 +28,11 @@ async def main():
     teamcolumns1 = ["id", "champ1", "champ2", "champ3", "champ4", "champ5", "cwinrate1", "cwinrate2", "cwinrate3",
                    "cwinrate4", "cwinrate5", "ckda1", "ckda2", "ckda3", "ckda4", "ckda5", "cdf1", "cdf2", "cdf3",
                    "cdf4", "cdf5", "alvl1", "alvl2", "alvl3", "alvl4", "alvl5", "awinrate1", "awinrate2", "awinrate3",
-                   "awinrate4", "awinrate5", "akda1", "akda2", "akda3", "akda4", "akda5"]
+                   "awinrate4", "awinrate5", "kda1", "kda2", "kda3", "kda4", "kda5"]
     teamcolumns2 = ["id", "champ6", "champ7", "champ8", "champ9", "champ10", "cwinrate6", "cwinrate7", "cwinrate8",
                     "cwinrate9", "cwinrate10", "ckda6", "ckda7", "ckda8", "ckda9", "ckda10", "cdf6", "cdf7", "cdf8",
                     "cdf9", "cdf10", "alvl6", "alvl7", "alvl8", "alvl9", "alvl10", "awinrate6", "awinrate7",
-                    "awinrate8", "awinrate9", "awinrate10", "akda6", "akda7", "akda8", "akda9", "akda10"]
+                    "awinrate8", "awinrate9", "awinrate10", "kda6", "kda7", "kda8", "kda9", "kda10"]
     team1data = pd.DataFrame(columns=teamcolumns1)
     team1data.to_csv('team1_data_temp.csv', mode='w', index=False)
     team2data = pd.DataFrame(columns=teamcolumns2)
