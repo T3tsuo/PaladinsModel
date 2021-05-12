@@ -5,8 +5,8 @@ import pandas as pd
 import arez
 import asyncio
 
-DEV_ID = 3733  # your Developer ID
-AUTH_KEY = "DDF9D77BBE2F4D66908BA307D850CDD3"  # your Auth Key
+DEV_ID = 0  # your Developer ID
+AUTH_KEY = ""  # your Auth Key
 
 
 async def get_champion(list, name):
