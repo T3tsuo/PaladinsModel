@@ -17,7 +17,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
 
 clf.fit(x_train, y_train)
 
-print(clf.score(x_test, y_test))
+print(((clf.score(x_test, y_test) * 1000000)//100)/100, "%")
 
 with open('model', 'wb') as f:
     pickle.dump(clf, f)
