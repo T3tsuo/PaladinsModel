@@ -10,7 +10,7 @@ clf = LogisticRegressionCV()
 
 df = pd.read_csv("merge_data_casual.csv")
 
-x = df[['cwinratedif', "ckdadif", "cdfdif", "awinratedif"]]
+x = df[['cwinratedif', "ckdadif", "cdfdif"]]
 y = df["WinTeam"]
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
