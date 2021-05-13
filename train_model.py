@@ -8,7 +8,7 @@ import pickle
 
 clf = LogisticRegressionCV()
 
-df = pd.read_csv("merge_data_casual.csv")
+df = pd.read_csv("data_casual.csv")
 
 x = df[['cwinratedif', "ckdadif", "cdfdif"]]
 y = df["WinTeam"]
