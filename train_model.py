@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegressionCV
 import pickle
 
-# with open('model', 'rb') as f:
+# with open('model_casual', 'rb') as f:
     # model = pickle.load(f)
 
 clf = LogisticRegressionCV()
@@ -19,5 +19,5 @@ clf.fit(x_train, y_train)
 
 print(((clf.score(x_test, y_test) * 1000000)//100)/100, "%")
 
-with open('model', 'wb') as f:
+with open('model_casual', 'wb') as f:
     pickle.dump(clf, f)
