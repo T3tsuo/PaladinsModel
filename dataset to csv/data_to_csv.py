@@ -5,8 +5,8 @@ import pandas as pd
 import arez
 import asyncio
 
-DEV_ID = 0  # your Developer ID
-AUTH_KEY = ""  # your Auth Key
+DEV_ID = 3733  # your Developer ID
+AUTH_KEY = "DDF9D77BBE2F4D66908BA307D850CDD3"  # your Auth Key
 
 
 async def get_champion(list, name):
@@ -20,8 +20,8 @@ async def get_champion(list, name):
 
 async def main():
     api = arez.PaladinsAPI(DEV_ID, AUTH_KEY)
-    matches = api.get_matches_for_queue(arez.Queue.Casual_Siege, start=datetime.fromisoformat('2021-05-01'),
-                                        end=datetime.fromisoformat('2021-05-02'), language=None, reverse=False,
+    matches = api.get_matches_for_queue(arez.Queue.Casual_Siege, start=datetime.fromisoformat('2021-05-02'),
+                                        end=datetime.fromisoformat('2021-05-03'), language=None, reverse=False,
                                         local_time=True, expand_players=True)
     teamcolumns1 = ["id", "WinTeam", "cwinrate1", "cwinrate2", "cwinrate3", "cwinrate4", "cwinrate5", "ckda1", "ckda2",
                     "ckda3", "ckda4", "ckda5", "cdf1", "cdf2", "cdf3", "cdf4", "cdf5", "cwinrate6", "cwinrate7",
