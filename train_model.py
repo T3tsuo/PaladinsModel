@@ -8,7 +8,7 @@ import pickle
 
 clf = LogisticRegressionCV()
 
-df = pd.read_csv("data_casual.csv")
+df = pd.read_csv("data_rank.csv")
 
 x = df[['cwinratedif', "ckdadif", "cdfdif"]]
 y = df["WinTeam"]
@@ -19,5 +19,5 @@ clf.fit(x_train, y_train)
 
 print(((clf.score(x_test, y_test) * 1000000)//100)/100, "%")
 
-with open('model_casual', 'wb') as f:
+with open('model_rank', 'wb') as f:
     pickle.dump(clf, f)
