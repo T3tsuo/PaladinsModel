@@ -33,7 +33,6 @@ async def main():
                     # grabs champions statistics
                     champions_stat = arez.utils.get(await match.team1[i].player.get_champion_stats(),
                                                     champion__name=match.team1[i].champion.name)
-                    # TODO: Handle champions_stat possibly being None here
                     cwinrate1.append(champions_stat.winrate)
                     ckda1.append(champions_stat.kda2)
                     cdf1.append(champions_stat.df)
@@ -41,7 +40,6 @@ async def main():
                     # grabs champions statistics
                     champions_stat = arez.utils.get(await match.team2[i].player.get_champion_stats(),
                                                     champion__name=match.team2[i].champion.name)
-                    # TODO: Handle champions_stat possibly being None here
                     cwinrate2.append(champions_stat.winrate)
                     ckda2.append(champions_stat.kda2)
                     cdf2.append(champions_stat.df)
