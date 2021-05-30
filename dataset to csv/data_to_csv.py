@@ -10,8 +10,8 @@ AUTH_KEY = ""  # your Auth Key
 
 async def main():
     async with arez.PaladinsAPI(DEV_ID, AUTH_KEY) as api:
-        matches = api.get_matches_for_queue(arez.Queue.Competitive_Keyboard, start=datetime.fromisoformat('2021-05-05'),
-                                            end=datetime.fromisoformat('2021-05-06'), language=None, reverse=False,
+        matches = api.get_matches_for_queue(arez.Queue.Casual_Siege, start=datetime.fromisoformat('2021-05-16'),
+                                            end=datetime.fromisoformat('2021-05-17'), language=None, reverse=False,
                                             local_time=True, expand_players=True)
         teamcolumns1 = ["id", "WinTeam", "cwinrate1", "cwinrate2", "cwinrate3", "cwinrate4", "cwinrate5", "ckda1", "ckda2",
                         "ckda3", "ckda4", "ckda5", "cdf1", "cdf2", "cdf3", "cdf4", "cdf5", "cwinrate6", "cwinrate7",
@@ -65,6 +65,7 @@ async def main():
                                     cdf1[1], cdf1[2], cdf1[3], cdf1[4], cwinrate2[0], cwinrate2[1], cwinrate2[2],
                                     cwinrate2[3], cwinrate2[4], ckda2[0], ckda2[1], ckda2[2], ckda2[3], ckda2[4], cdf2[0],
                                     cdf2[1], cdf2[2], cdf2[3], cdf2[4], cwinratedif, ckdadif, cdfdif]
+                print(team1data)
                 team1data.to_csv('data_temp.csv', mode='a', header=False, index=False)
                 team1data = pd.DataFrame(columns=teamcolumns1)
             except Exception:
