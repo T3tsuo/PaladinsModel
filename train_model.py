@@ -18,8 +18,7 @@ while True:
     clf.fit(x_train, y_train)
     score = ((clf.score(x_test, y_test) * 1000000)//100)/100
     print(score)
-    if score > 89:
+    if score > 90:
         with open('model_casual', 'wb') as f:
             pickle.dump(clf, f)
         break
-print(score)
