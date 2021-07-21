@@ -10,8 +10,8 @@ AUTH_KEY = ""  # your Auth Key
 
 async def main():
     async with arez.PaladinsAPI(DEV_ID, AUTH_KEY) as api:
-        matches = api.get_matches_for_queue(arez.Queue.Casual_Siege, start=datetime.fromisoformat('2021-06-16'),
-                                            end=datetime.fromisoformat('2021-06-17'), language=None, reverse=False,
+        matches = api.get_matches_for_queue(arez.Queue.Casual_Siege, start=datetime.fromisoformat('2021-06-22'),
+                                            end=datetime.fromisoformat('2021-06-23'), language=None, reverse=False,
                                             local_time=True, expand_players=True)
         teamcolumns1 = ["id", "WinTeam", "cwinrate1", "cwinrate2", "cwinrate3", "cwinrate4", "cwinrate5", "ckda1", "ckda2",
                         "ckda3", "ckda4", "ckda5", "cdf1", "cdf2", "cdf3", "cdf4", "cdf5", "cwinrate6", "cwinrate7",
