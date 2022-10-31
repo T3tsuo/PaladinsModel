@@ -8,12 +8,14 @@ import asyncio
 DEV_ID = 0  # your Developer ID
 AUTH_KEY = ""  # your Auth Key
 
+
 async def main():
     async with arez.PaladinsAPI(DEV_ID, AUTH_KEY) as api:
-        matches = api.get_matches_for_queue(arez.Queue.Casual_Siege, start=datetime.fromisoformat('2021-06-22'),
-                                            end=datetime.fromisoformat('2021-06-23'), language=None, reverse=False,
+        matches = api.get_matches_for_queue(arez.Queue.Casual_Siege, start=datetime.fromisoformat('2022-10-16'),
+                                            end=datetime.fromisoformat('2022-10-17'), language=None, reverse=False,
                                             local_time=True, expand_players=True)
-        teamcolumns1 = ["id", "WinTeam", "cwinrate1", "cwinrate2", "cwinrate3", "cwinrate4", "cwinrate5", "ckda1", "ckda2",
+        teamcolumns1 = ["id", "WinTeam", "cwinrate1", "cwinrate2", "cwinrate3", "cwinrate4", "cwinrate5", "ckda1",
+                        "ckda2",
                         "ckda3", "ckda4", "ckda5", "cdf1", "cdf2", "cdf3", "cdf4", "cdf5", "cwinrate6", "cwinrate7",
                         "cwinrate8", "cwinrate9", "cwinrate10", "ckda6", "ckda7", "ckda8", "ckda9", "ckda10", "cdf6",
                         "cdf7", "cdf8", "cdf9", "cdf10", "cwinratedif", "ckdadif", "cdfdif"]
@@ -55,20 +57,23 @@ async def main():
                     sum4 += cwinrate2[i]
                     sum5 += ckda2[i]
                     sum6 += cdf2[i]
-                cwinratedif = sum1/5 - sum4/5
-                ckdadif = sum2/5 - sum5/5
-                cdfdif = sum3/5 - sum6/5
+                cwinratedif = sum1 / 5 - sum4 / 5
+                ckdadif = sum2 / 5 - sum5 / 5
+                cdfdif = sum3 / 5 - sum6 / 5
                 # add teams data to dataframe
                 team1data.loc[0] = [match.id, match.winning_team - 1, cwinrate1[0], cwinrate1[1], cwinrate1[2],
-                                    cwinrate1[3], cwinrate1[4], ckda1[0], ckda1[1], ckda1[2], ckda1[3], ckda1[4], cdf1[0],
+                                    cwinrate1[3], cwinrate1[4], ckda1[0], ckda1[1], ckda1[2], ckda1[3], ckda1[4],
+                                    cdf1[0],
                                     cdf1[1], cdf1[2], cdf1[3], cdf1[4], cwinrate2[0], cwinrate2[1], cwinrate2[2],
-                                    cwinrate2[3], cwinrate2[4], ckda2[0], ckda2[1], ckda2[2], ckda2[3], ckda2[4], cdf2[0],
+                                    cwinrate2[3], cwinrate2[4], ckda2[0], ckda2[1], ckda2[2], ckda2[3], ckda2[4],
+                                    cdf2[0],
                                     cdf2[1], cdf2[2], cdf2[3], cdf2[4], cwinratedif, ckdadif, cdfdif]
                 print(team1data)
                 team1data.to_csv('data_temp.csv', mode='a', header=False, index=False)
                 team1data = pd.DataFrame(columns=teamcolumns1)
             except Exception:
                 pass
+
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())  # run the async loop
