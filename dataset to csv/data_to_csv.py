@@ -11,8 +11,8 @@ AUTH_KEY = ""  # your Auth Key
 
 async def main():
     async with arez.PaladinsAPI(DEV_ID, AUTH_KEY) as api:
-        matches = api.get_matches_for_queue(arez.Queue.Casual_Siege, start=datetime.fromisoformat('2022-10-16'),
-                                            end=datetime.fromisoformat('2022-10-17'), language=None, reverse=False,
+        matches = api.get_matches_for_queue(arez.Queue.Casual_Siege, start=datetime.fromisoformat('2022-11-19'),
+                                            end=datetime.fromisoformat('2022-11-20'), language=None, reverse=False,
                                             local_time=True, expand_players=True)
         teamcolumns1 = ["id", "WinTeam", "cwinrate1", "cwinrate2", "cwinrate3", "cwinrate4", "cwinrate5", "ckda1",
                         "ckda2",
@@ -72,8 +72,8 @@ async def main():
                 team1data.to_csv('data_temp.csv', mode='a', header=False, index=False)
                 team1data = pd.DataFrame(columns=teamcolumns1)
             except Exception:
+                print("Error")
                 pass
 
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())  # run the async loop
+asyncio.run(main())  # run the async function
