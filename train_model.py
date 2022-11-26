@@ -15,8 +15,8 @@ y = df["WinTeam"]
 
 while True:
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
-    clf.fit(x_train, y_train)
-    score = ((clf.score(x_test, y_test) * 1000000)//100)/100
+    clf.fit(x_train.values, y_train.values)
+    score = ((clf.score(x_test.values, y_test.values) * 1000000)//100)/100
     print(score)
     if score > 90:
         with open('model_casual', 'wb') as f:
